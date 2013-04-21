@@ -22,7 +22,7 @@ def searchTweets(q):
 
 
 if __name__ == '__main__':
-    s = 51000460
+    s = 52000179
     while s < 60000000:
         searchTweets(s)
         s += 1
