@@ -11,18 +11,11 @@ def searchTweets(q):
     print '.'
     if 'lang' in u and u['lang'] == 'en':
         search = urllib.urlopen('https://api.twitter.com/1/statuses/user_timeline.json?'
-                                + 'include_entities=true&include_rts=true&user_id=' + str(q) + '&count=101')
+                                + 'include_entities=true&include_rts=true&user_id=' + str(q) + '&count=100')
         d = simplejson.loads(search.read())
         print q, len(d)
         if len(d) > 99:
             for tweet in d:
                 data[tweet['created_at'][:20]] = tweet['text']
-            with open('./json/' + str(q) + '.json', 'w') as f:
+            with open('./verified/' + str(q) + '.json', 'w') as f:
                 json.dump(data, f)
-
-
-if __name__ == '__main__':
-    s = 53000277
-    while s < 60000000:
-        searchTweets(s)
-        s += 1
