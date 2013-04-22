@@ -4,5 +4,5 @@ from api import searchTweets
 
 with open('./1.json', 'r') as f:
     d = simplejson.loads(f.read())
-for i in d['ids']:
+for i in d['ids'][280:]:
     searchTweets(i)
